@@ -1,0 +1,340 @@
+/* 
+    File: my_allocator.c
+
+    Author: GRAHAM LESLIE
+            Department of Computer Science
+            Texas A&M University
+    Date  : 2/11/13
+
+    Modified: 
+
+    This file contains the implementation of the module "MY_ALLOCATOR".
+	
+	COMPILE WITH -lm FLAG FOR MATH LIBRARY (log)
+
+*/
+
+/*--------------------------------------------------------------------------*/
+/* DEFINES */
+/*--------------------------------------------------------------------------*/
+
+    /* -- (none) -- */
+
+/*--------------------------------------------------------------------------*/
+/* INCLUDES */
+/*--------------------------------------------------------------------------*/
+
+#include <stdlib.h>
+#include <math.h>
+#include "my_allocator.h"
+
+/*--------------------------------------------------------------------------*/
+/* DATA STRUCTURES */ 
+/*--------------------------------------------------------------------------*/
+
+Addr** FREE_LIST;
+
+/*--------------------------------------------------------------------------*/
+/* GLOBALS */ 
+/*--------------------------------------------------------------------------*/
+
+int NUM_LISTS;
+Addr START_MEMORY;
+Addr END_MEMORY;
+unsigned int HEADER_SIZE;
+unsigned int _LENGTH;
+
+/*--------------------------------------------------------------------------*/
+/* CONSTANTS */
+/*--------------------------------------------------------------------------*/
+
+    /* -- (none) -- */
+
+/*--------------------------------------------------------------------------*/
+/* FORWARDS */
+/*--------------------------------------------------------------------------*/
+
+    /* -- (none) -- */
+
+/*--------------------------------------------------------------------------*/
+/* FUNCTIONS FOR MODULE MY_ALLOCATOR */
+/*--------------------------------------------------------------------------*/
+
+/* Don't forget to implement "init_allocator" and "release_allocator"! */
+
+unsigned int init_allocator(unsigned int _basic_block_size, unsigned int _length) {
+	// determine sizes to be used
+	NUM_LISTS = log2(_length / _basic_block_size) + 1;
+	HEADER_SIZE = 13;
+	_LENGTH = _length;
+		
+	// create the memory
+	START_MEMORY = malloc(_length);
+	END_MEMORY = START_MEMORY - _length;
+	
+	// create the freelist
+	// 1. malloc the first dimension
+	FREE_LIST = malloc(NUM_LISTS * sizeof(Addr**));
+	
+	// 2. malloc each row in the freelist
+	int i;
+	for (i = 0; i < NUM_LISTS; i ++) {
+		FREE_LIST[i] = (Addr*)malloc(sizeof(Addr**));
+	}
+	
+	// 3. set FREE_LIST entries to NULL
+	for (i = 0; i < NUM_LISTS; i ++) {
+		FREE_LIST[i][0] = NULL;
+		FREE_LIST[i][1] = NULL;
+	}
+	
+	// create the first Header
+	Header* h = START_MEMORY;
+		h->empty = 1;
+		h->next = NULL;
+		h->prev = NULL;
+		h->size = (_length - HEADER_SIZE);
+	
+	// store it in the freelist
+	FREE_LIST[NUM_LISTS-1][0] = h;	
+		
+	// return bytes available
+	return h->size;
+}
+
+int release_allocator() {
+	free(START_MEMORY);
+}
+
+extern Addr my_malloc(unsigned int _length) {
+	Header* h = NULL;
+	Header* touse = NULL;
+	Header* tNext = NULL;
+		
+	printf("allocating: %i\n\n",_length);
+		
+	int i, j, i_f, j_f;
+	for (i = NUM_LISTS-1; i >= 0; i --) {
+		for (j = 1; j >= 0; j --) {	
+			if (FREE_LIST[i][j] != NULL) {
+				// get the temp header
+				h = FREE_LIST[i][j];
+				
+				// if it fits, set touse
+				if (h->size >= _length) {
+					touse = FREE_LIST[i][j];
+					i_f = i;
+					j_f = j;
+					break;
+				}
+			}
+		}
+	}
+			
+	// if we got a size that fits
+	if (touse != NULL) {
+		int sizeAfterSplit;
+		sizeAfterSplit = (touse->size + HEADER_SIZE) / 2 - HEADER_SIZE;
+		
+		// if the very first block, or otherwise splittable [ ][x] - -fixed!
+		if (1==1) {
+			while (sizeAfterSplit >= _length && i_f > 0) {
+				// update sizeAfterSplit
+				sizeAfterSplit = (touse->size + HEADER_SIZE) / 2 - HEADER_SIZE;
+				
+				// update the first header
+				touse->size = sizeAfterSplit;
+				touse->empty = 1;
+				
+				// create a new header at halfway of touse
+				Header *hNew = (Addr)(((void*)touse) + (touse->size));
+				
+				// set the data for the new header
+				hNew->empty = 1;
+				hNew->size = sizeAfterSplit;
+				
+				// point them at each other
+				tNext = touse->next;
+				touse->next = hNew;
+				hNew->prev = touse;
+				hNew->next = tNext;
+			
+				// update the FREE_LIST
+				// 1. remove the old one
+				FREE_LIST[i_f][j_f] = NULL;
+				
+				// 2. add the new Headers
+				i_f --;
+				if (j_f < 1) j_f ++;
+				FREE_LIST[i_f][0] = touse;
+				FREE_LIST[i_f][1] = hNew;
+													
+				touse = hNew;
+			}
+		}
+		
+		// allocate now
+		touse->empty  = 0;
+		FREE_LIST[i_f][j_f] = NULL;
+		
+		printERRYTHING();
+		
+		return (Addr)touse;
+		
+	} else {
+		printf("ERROR: OUT OF MEMORY!\n");
+		exit(EXIT_FAILURE);
+	}
+}
+
+extern int my_free(Addr _a) {
+  	Header *h = _a;
+  	Header *o;
+  	int freeCase = 0;
+  	
+  	h->empty = 1;
+  	
+  	// [ ][_a][ ]
+  	if (h->prev != NULL && h->next != NULL) {
+  		
+  		// [_a][_a']
+  		if (h->next->size == h->size) freeCase = 2;
+  		
+  		// [_a'][_a]
+  		else if (h->prev->size == h->size) freeCase = 3;
+  		
+  		// [x][_a][y]
+  		else if (h->prev->size != h->size && h->next->size != h->size) {
+  			freeCase = 5;
+  		}
+  	}
+  	
+  	// ..[_a]
+  	if (h->next == NULL && h->prev != NULL) freeCase = 1;
+  	
+  	// [_a]..
+  	if (h->prev == NULL && h->next != NULL) freeCase = 4;
+  	
+  	printf("--------------------------free case: %i for ",freeCase);
+  	printf("[");
+  	if (h->prev != NULL) printf("%i<-", h->prev->size + HEADER_SIZE);
+		printf("(%i,%i)",h->size + HEADER_SIZE, h->empty);
+	if (h->next != NULL) printf("->%i", h->next->size + HEADER_SIZE);
+		printf("]\n");
+  	
+  	switch(freeCase) {
+		case 1:
+		case 4:
+		case 5: 
+		{
+			if (FREE_LIST[getList(h)][0] == NULL) FREE_LIST[getList(h)][0] = h; 
+			else FREE_LIST[getList(h)][1] = h; 
+			h->empty = 1;
+			break;
+		}
+		case 2: 
+		case 3: 
+		{
+			if (freeCase == 2) 
+			{
+				if (h->next->empty == 1) {
+					FREE_LIST[getList(h)][0] = NULL;
+					FREE_LIST[getList(h)][1] = NULL;
+					h->size = (h->size + HEADER_SIZE) * 2 - HEADER_SIZE;
+					h->empty = 1;
+					h->next = h->next->next;
+					if (h-next->next != NULL && h->prev != NULL) h->next->next->prev = h;
+					if (FREE_LIST[getList(h)+1][0] == NULL) FREE_LIST[getList(h)+1][0] = h; 
+					else FREE_LIST[getList(h)+1][1] = h; 
+					printf("> COALESCED R!\n");
+					my_free(h);
+				} else {
+					FREE_LIST[getList(h)][0] = h; 
+					h->empty = 1;
+				}
+			} 
+			else if (freeCase == 3) 
+			{
+				if (h->prev->empty == 1) {
+					FREE_LIST[getList(h)][0] = NULL;
+					FREE_LIST[getList(h)][1] = NULL;
+					h->prev->size = (h->size + HEADER_SIZE) * 2 - HEADER_SIZE;
+					h->prev->empty = 1;
+					h->prev->next = h->next;
+					if (h->prev->prev != NULL && h->next != NULL) h->next = h->prev->prev; 
+					if (FREE_LIST[getList(h)+1][0] == NULL) FREE_LIST[getList(h)+1][0] = h->prev; 
+					else FREE_LIST[getList(h)+1][1] = h->prev; 
+					printf("> COALESCED L\n!");
+					my_free(h->prev);
+				} else {
+					FREE_LIST[getList(h)][1] = h->prev; 
+					h->empty = 1;
+				}
+			}
+			
+			break;
+		}
+		default:
+		{
+			printf("ERROR: freeCase undefined!");
+			exit(EXIT_FAILURE);
+			break;
+		}
+	}
+	
+	printERRYTHING();
+  		 	
+}
+
+int getList(Addr _a) {
+	Header *a = _a;
+	
+	int i = NUM_LISTS, j = a->size + HEADER_SIZE;
+	while (j != _LENGTH/(int)pow(2,i)) {
+		i --;
+	}
+	
+	printf("GETLIST(%i): %i\n",a->size + HEADER_SIZE, NUM_LISTS-i-1);	
+	return NUM_LISTS-i-1;
+}
+
+// debug
+
+extern void printERRYTHING() {
+	int i, j;
+	Header *h = NULL;
+	
+	printf("FREE_LIST:\n");
+	for (i = NUM_LISTS-1; i >= 0; i --) {
+	
+		printf("%i: ",i);
+		for (j = 0; j <= 1; j ++) {
+			if (FREE_LIST[i][j] == NULL) {
+				printf("[ ]");
+			} else {
+				h = FREE_LIST[i][j];
+				printf("[%i]",h->size + HEADER_SIZE);
+			}
+		}
+		
+		printf("\n");
+	}
+	
+	printf("MEMORY: \n");
+	h = START_MEMORY;
+	
+	int oC = 0;
+	while(h != NULL && oC < 100) {
+		printf("[");
+		if (h->prev != NULL) printf("%i<-", h->prev->size + HEADER_SIZE);
+		printf("(%i,%i)",h->size + HEADER_SIZE, h->empty);
+		if (h->next != NULL) printf("->%i", h->next->size + HEADER_SIZE);
+		printf("]\t");
+		
+		h = h->next;
+		oC ++;
+	}
+	printf("\n\n\n");
+}
+	
+

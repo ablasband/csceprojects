@@ -1,0 +1,3 @@
+var x = 3; var c = 6;
+c = c / x / x;
+c + 1

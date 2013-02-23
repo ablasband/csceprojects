@@ -1,0 +1,13 @@
+Assignment 4:
+
+Team Members:
+Graham Leslie
+Sarah Vance
+
+Tasks:
+While Loop              -   Graham
+Variable Declaration    -   Graham and Sarah
+Function Call           -   Graham
+Function Declaration    -   Graham and Sarah
+Return Expressions      -   Sarah
+Primitive Typing Rules  -   Sarah

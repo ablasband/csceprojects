@@ -1,0 +1,18 @@
+Graham Leslie
+Sarah Vance
+CSCE 314 - 500
+
+Graham Leslie added:
+while
+OpDivides/Greater/GreaterEq/Lesser/LesserEq
+
+
+Sarah Vance added:
+fixed test files
+changed summation
+comparison
+comparisonX
+
+Both worked on:
+Block functions
+AssignmentVar, AssignmentVarInt

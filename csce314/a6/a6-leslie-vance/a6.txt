@@ -1,0 +1,22 @@
+CSCE 314     |
+Assignment 6 |
+-------------+
+Graham Leslie|
+Sarah Vance  |
+-------------+
+
+Architecture: 	Unix
+Matrix Size:	1000x1000
+Values:			Long randomly generated with seed
+
+Results:
+[gleslie]@sun ~/csce314/a6/working> (13:31:12 12/05/12)
+:: clear; javac TestMax.java; java TestMax;
+unsynchronized test:       9223343898361894064     226ms
+synchronized test:         9223343898361894064  123ms
+
+The synchronized test ran faster because 
+the unsynchronized test required an extra parsing of 
+an array to find the largest value for each row,
+while the synchronized test live-updated the 
+largest value to avoid that loss of speed.

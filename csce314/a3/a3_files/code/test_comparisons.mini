@@ -1,0 +1,7 @@
+x = 1; c = 0;
+if x < 2  then c = c + 1; else ;
+if x <= 1 then c = c + 1; else ;
+if x > 0 then c = c + 1; else ;
+if x >= 1 then c = c + 1; else ;
+if x < 1 == x >= 1 then c = 0; else c = c + 1;
+c
