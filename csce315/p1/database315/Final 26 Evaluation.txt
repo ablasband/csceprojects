@@ -1,0 +1,30 @@
+Graham Leslie
+Sarah Vance
+Ryan Finke
+CSCE 315 Project 1 Team 26 Individual Report
+
+Multipliers:
+Graham Leslie:		1.5
+Sarah Vance:		1.5
+Ryan Finke:			0
+
+“These multipliers are a true and accurate assessment of our relative contributions on the project.  We all agree that that these are honest evaluations and are satisfied with the final decision.”
+
+Explanation:
++ Ryan Q-dropped the course after writing 2 or 3 helper functions, and   	
+  did not notify the rest of the team until the night the database was 
+  due.  
+
+	 + He caused serious problems (as we had delegated work to him that 				
+	     we had to pick up immediately before the project was due).	
+     + The other team had been attempting to contact him, and he gave  
+         them no response that he was no longer a part of the project.  
+	 + We found out, also the day the database was due, that Ryan had 
+	   	 sent our alternate team a DLL file but forgotten the LIB file, 
+	   	 and they had been attempting to reach him all week looking for 
+	   	 the LIB.  We managed to get them a LIB file, but it may have 
+	   	 been too late for them to use our database.  
+ 
+ + Sarah and I (Graham) equally and fairly divided the work ourselves, 
+   and saw that it was done.
+
