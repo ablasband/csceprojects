@@ -1,0 +1,44 @@
+Graham Leslie
+CSCE 313
+Dr. Bettati
+10 March 2012
+
+MP3 REPORT
+
+1. Measurements
+
+	i. VARIABLE: WORKERS
+	command						|			time (sec)
+	--------------------------------------------------
+	client -n 1000 -b 500 -w 40				3
+	client -n 1000 -b 500 -w 20				2
+	client -n 1000 -b 500 -w 10				4
+	client -n 1000 -b 500 -w 5				7
+	client -n 1000 -b 500 -w 2				17
+	
+	ii. VARIABLE: BUFFER
+	command						|			time (sec)
+	--------------------------------------------------
+	client -n 1000 -b 500 -w 10				4
+	client -n 1000 -b 250 -w 10				4
+	client -n 1000 -b 75 -w 10				4
+	client -n 1000 -b 30 -w 10				4
+	client -n 1000 -b 20 -w 10				5
+	
+2. Worker Threads Analysis
+	
+	According to my data, increasing the number of worker
+	threads has a positive effect for number of threads
+	< 30.  With more than 30 threads, there is no 
+	performance gain.  
+	
+	However, for < 30 threads, there is a definite
+	performance gain when increasing threads.
+	
+3. Buffer Size Analysis
+	
+	According to my data, increasing the buffer size
+	had no effect on performance for buffer size > 25.
+	However, at that low a buffer size, performance
+	begins to take a hit.
+	
