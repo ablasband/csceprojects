@@ -1,0 +1,42 @@
+<?xml?>
+<project>
+	<settings>
+		<label>_zombie</label>
+		<root_path>\</root_path>
+		<output_path>\</output_path>
+		<source_path>\</source_path>
+		<jdkprofile_ref/>
+		<compiler_ref/>
+		<ant_ref/>
+	</settings>
+	<runtimes>
+		<runtime>
+			<label>&lt;Default&gt;</label>
+			<application_ref/>
+			<applet_ref/>
+			<debugger_ref/>
+			<param/>
+			<run>zombie.htm</run>
+		</runtime>
+	</runtimes>
+	<libraries/>
+	<files>
+		<include>
+			<fileitem>
+				<path>zombie.htm</path>
+				<url>zombie.htm</url>
+				<source>true</source>
+				<browser>true</browser>
+			</fileitem>
+			<fileitem>
+				<path>zombie.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>zombie.OLD</path>
+				<source>true</source>
+			</fileitem>
+		</include>
+	</files>
+	<tasks/>
+</project>

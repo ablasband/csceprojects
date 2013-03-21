@@ -1,0 +1,627 @@
+//ZOMBIE
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.*;
+import java.util.*;
+import javax.imageio.*;
+import java.awt.event.*;
+import java.awt.image.*; 
+
+public class zombie extends JApplet implements KeyListener
+{
+	Graphics g;
+	int globalSpeed = 1;
+	int globalWidth = 40;
+	int globalHeight = 30;
+	char[][] map = new char[globalWidth][globalHeight];
+	BufferedImage wallSpr = null;
+	BufferedImage rhinoB = null;
+	BufferedImage duckB = null;
+	int stepB = 0;
+	int cB = 0;
+	int backSwitch = 1;
+	
+	int xB = 0;
+	int yB = 0;
+	
+	int csize = 500;
+	boolean cup = true;
+	
+	boolean keyP[] = new boolean[4];
+	
+	/*
+	 * 0 - right
+	 * 1 - up
+	 * 2 - left
+	 * 3 - done
+	 */
+	 
+	Player player = new Player(11,10);
+	Zombie zombie1 = new Zombie(20,20);
+	
+	//CLASSES ******************************************************************
+	public class Player
+	{
+		//VARIABLES
+		public int x;
+		public int y;
+		
+		private int jumpTimer = 0;
+		private boolean jumping = false;
+		
+		public BufferedImage mySpr = null;
+		
+		//CONSTRUCTOR
+		public Player(int ix,int iy)
+		{
+			x = ix*16;
+			y = iy*16;
+		
+			try
+			{
+	    		mySpr = ImageIO.read(new File("littleMan.PNG"));
+			}
+			catch (IOException e)
+			{
+				System.out.println(e);
+			}
+		}
+		
+		//METHODS
+		public void checkFall()
+		{
+			if (keyP[1] && jumpTimer > 0)
+			{
+				if (jumpTimer > 0)
+				{
+					if (map[pMod(x)][pMod(y) + 1] == 'x')
+					{
+						jumping = true;
+						jumpTimer = -4;
+					}
+				}
+			}
+			
+			if (map[pMod(x)][pMod(y) + 1] != 'x' && !jumping)
+			{
+				y += 16;
+			}
+			else
+			{
+				//
+			}
+		}
+		
+		public void checkMove()
+		{
+			if (keyP[0] && (map[pMod(x) + 1][pMod(y)] != 'x'))
+			{
+				x += 8;
+			}
+			
+			if (keyP[2] && (map[pMod(x) - 1][pMod(y)] != 'x'))
+			{
+				x -= 8;
+			}
+		}
+		
+		public void run()
+		{
+			checkFall();
+			checkMove();
+			
+			jumpTimer ++;
+			
+			if (jumpTimer > 0)
+			{
+				jumping = false;
+			}
+			
+			if (jumping)
+			{
+				if (map[pMod(x)][pMod(y) - 1] != 'x')
+				y -= 16;
+			}
+		}
+	}
+	
+	public class Zombie
+	{
+		//VARIABLES
+		public int x;
+		public int y;
+		private int canMove = 1;
+		private int jumpTimer = 0;
+		private boolean jumping = false;
+		private int attackDist = 1000;
+		
+		public BufferedImage mySpr = null;
+		
+		//CONSTRUCTOR
+		public Zombie(int ix,int iy)
+		{
+			x = ix * 16;
+			y = iy * 16;
+			
+			try
+			{
+	    		mySpr = ImageIO.read(new File("zombieMan.PNG"));
+			}
+			catch (IOException e)
+			{
+				System.out.println(e);
+			}
+		}
+		
+		//METHODS
+		public void move()
+		{
+			if (Math.abs(player.x-x) < attackDist)
+			{
+				if (Math.abs(player.y-y) < attackDist)
+				{
+					if (player.x < x)
+					{
+						if (map[pMod(x) - 1][pMod(y)] != 'x')
+						{
+							x -= 8;
+						}
+					}
+					else
+					{
+						if (map[pMod(x) + 1][pMod(y)] != 'x')
+						{
+							x += 8;
+						}
+					}
+					
+					if (player.y < y && jumpTimer > 0)
+					{
+						if (map[pMod(x)][pMod(y) + 1] == 'x')
+						{
+							jumping = true;
+							jumpTimer = -4;
+						}
+					}
+				}
+			}
+		}
+		
+		public void checkFall()
+		{				
+			if (map[pMod(x)][pMod(y) + 1] != 'x' && !jumping)
+			{
+				y += 16;
+			}
+			else
+			{
+				//
+			}
+		}
+		
+		public void hitPlayer()
+		{
+			if (x == player.x && y == player.y)
+			{
+				canMove = - 10;
+			}
+		}
+		
+		public void run()
+		{
+			checkFall();
+			hitPlayer();
+			
+			if (canMove > 0)
+			{
+				move();
+			}
+			
+			canMove ++;
+			jumpTimer ++;
+			
+			if (jumpTimer > 0)
+			{
+				jumping = false;
+			}
+			
+			if (jumping)
+			{
+				if (map[pMod(x)][pMod(y) - 1] != 'x')
+				{
+					y -= 16;
+				}
+			}
+		}
+	}
+		
+	//MAIN METHODS *************************************************************
+	public void init()
+	{
+		addKeyListener(this);
+		resetKeyP();
+		loadMap("map1.txt");
+		printMap();
+		
+		try
+		{
+    		wallSpr = ImageIO.read(new File("pathBlock.PNG"));
+    		rhinoB = ImageIO.read(new File("rhino.PNG"));
+    		duckB = ImageIO.read(new File("YellowRubberDuck.jpg"));
+		}
+		catch (IOException e)
+		{
+			System.out.println(e);
+		}
+	}
+	
+	public void paint(Graphics g)
+	{	
+		doPause(globalSpeed);
+		
+		player.run();
+		zombie1.run();
+		
+		incStep();
+		reDraw(g);
+		repaint();
+	}
+	
+	public void reDraw(Graphics g)
+	{
+		clearScreen(g);	
+		
+		drawBack(backSwitch,g);
+		
+		int x = 0,y = 0;
+		
+		for (y = 0; y < globalHeight; y ++)
+		{
+			for (x = 0; x < globalWidth; x ++)
+			{
+				if (map[x][y] == 'x')
+				{
+					//drawBlock(Color.black,x*16,y*16,16,g);
+					drawSprite(wallSpr,x*16,y*16,g);
+				}	
+			}
+		}
+		
+		//drawBlock(Color.yellow,player.x,player.y,16,g);
+		drawSprite(player.mySpr,player.x,player.y,g);
+		
+		drawSprite(zombie1.mySpr,zombie1.x,zombie1.y,g);
+	}
+	
+	public void drawBack(int num,Graphics g)
+	{
+		Random generator = new Random();
+		
+		Color cIndex[] = new Color[8];
+		cIndex[0] = Color.red;
+		cIndex[1] = Color.yellow;
+		cIndex[2] = Color.orange;
+		cIndex[3] = Color.green;
+		cIndex[4] = Color.blue;
+		cIndex[5] = Color.magenta;
+		cIndex[6] = Color.white;
+		cIndex[7] = Color.black;
+		
+		if (num == 0)
+		{
+			if (stepB == 0)
+			{		
+				drawBlock(cIndex[generator.nextInt(8)],0,0,640,g);
+				
+				for (int i = 0; i < 15; i ++)
+				{
+					drawCircle(cIndex[generator.nextInt(8)],generator.nextInt(640),generator.nextInt(640),generator.nextInt(200),g);
+				}
+				
+				for (int i = 0; i < 15; i ++)
+				{
+					drawBlock(cIndex[generator.nextInt(8)],generator.nextInt(640),generator.nextInt(640),generator.nextInt(200),g);
+				}
+				
+				for (int i = 0; i < 23; i ++)
+				{
+					draw3dThing(cIndex[generator.nextInt(8)],generator.nextInt(640),generator.nextInt(640),generator.nextInt(200),g);
+				}
+			}
+			if (stepB == 1)
+			{
+				for (int i = 0; i < 32; i ++)
+				{
+					drawBlock(cIndex[generator.nextInt(8)],0,32*i,640,g);
+				}
+			}
+			if (stepB == 2)
+			{
+				drawCircle(cIndex[generator.nextInt(8)],generator.nextInt(640),generator.nextInt(640),generator.nextInt(200),g);
+			}
+			if (stepB == 3)
+			{
+				if (cB == 0)
+				{
+					drawBlock(cIndex[7],0,0,640,g);
+					cB = 1;
+				}
+				else
+				{
+					drawBlock(cIndex[6],0,0,640,g);
+					cB = 0;
+				}
+			}
+			if (stepB == 4)
+			{
+				for (int i = 0; i < 40; i ++)
+				{
+					drawBlock(cIndex[generator.nextInt(8)],32*i,0,640,g);
+				}
+			}
+			if (stepB == 5)
+			{
+				drawBlock(cIndex[7],0,0,640,g);
+				drawCircle(Color.white,xB,yB,25,g);
+					
+				if (generator.nextInt(8) > 4)
+				{			
+					xB += generator.nextInt(8);
+					yB += generator.nextInt(8);
+				}
+				else
+				{
+					xB -= generator.nextInt(8);
+					yB -= generator.nextInt(8);
+				}
+				
+				if (xB < 0) {xB = 600;}
+				if (xB > 640) {xB = 600;}
+				if (yB < 0) {yB = 600;}
+				if (yB > 480) {yB = 600;}
+			}
+			if (stepB == 6)
+			{
+				drawBlock(cIndex[6],0,0,640,g);
+				drawCircle(Color.yellow,200,200,csize,g);
+				
+				if (csize < 300)
+				{
+					cup = true;
+				}
+				
+				if (csize > 800)
+				{
+					cup = false;
+				}
+				
+				if (cup)
+				{
+					csize += 5;
+				}
+				else
+				{
+					csize -= 5;
+				}
+			}
+			if (stepB == 7)
+			{		
+				drawBlock(cIndex[generator.nextInt(8)],0,0,640,g);
+			}
+			if (stepB == 8)
+			{		
+				drawSprite(rhinoB,0,0,g);
+			}
+			if (stepB == 9)
+			{		
+				drawSprite(duckB,0,0,g);
+			}
+		}
+		
+		if (num == 1)
+		{
+			drawBlock(Color.black,0,0,640,g);
+		}
+	}
+	
+	//DRAWING ******************************************************************
+	public void drawBlock(Color c,int x,int y,int len,Graphics g)
+	{
+		g.setColor(c);
+		g.fillRect(x,y,len,len);
+	}
+	
+	public void draw3dThing(Color c,int x,int y,int len,Graphics g)
+	{
+		g.setColor(c);
+		g.fill3DRect(x,y,len,len,true);
+	}
+	
+	public void drawCircle(Color c,int x,int y,int len,Graphics g)
+	{
+		g.setColor(c);
+		g.fillOval(x,y,len,len);
+	}
+	
+	public void drawBlockImg(Color c,int x,int y,int len,Graphics g)
+	{
+		g.setColor(c);
+		g.fillRect(x,y,len,len);
+	}
+	
+	public void drawText(Color c,int x,int y,String str,Graphics g)
+	{
+		g.setColor(c);
+		g.drawString(str,x,y);
+	}
+	
+	public void clearScreen(Graphics g)
+	{
+		g.setColor(Color.white);
+		g.fillRect(0,0,640,480);
+	}
+	
+	public void drawSprite(Image img,int x,int y,Graphics g)
+	{
+		g.drawImage(img,x,y,null);
+	}
+	
+	//KEY LISTENER *************************************************************
+	public void keyPressed(KeyEvent e)
+	{
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+		{
+			keyP[0] = true;
+		}
+		
+		if (e.getKeyCode() == KeyEvent.VK_UP)
+		{
+			keyP[1] = true;
+		}
+		
+		if (e.getKeyCode() == KeyEvent.VK_LEFT)
+		{
+			keyP[2] = true;
+		}
+		
+		if (e.getKeyCode() == KeyEvent.VK_DOWN)
+		{
+			keyP[3] = true;
+		}
+	}
+	
+	public void keyReleased(KeyEvent e)
+	{
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+		{
+			keyP[0] = false;
+		}
+		
+		if (e.getKeyCode() == KeyEvent.VK_UP)
+		{
+			keyP[1] = false;
+		}
+		
+		if (e.getKeyCode() == KeyEvent.VK_LEFT)
+		{
+			keyP[2] = false;
+		}
+		
+		if (e.getKeyCode() == KeyEvent.VK_DOWN)
+		{
+			keyP[3] = false;
+		}
+	}
+	
+	public void keyTyped(KeyEvent e)
+	{
+		//
+	}
+	
+	//EXTRA METHODS ************************************************************
+	public void doPause(int iTimeInSeconds) //pause
+	{
+		long t0, t1;
+		t0 = System.currentTimeMillis( );
+		t1 = System.currentTimeMillis( )+(iTimeInSeconds*50); 					//shortened to speed it up
+
+		do
+		{
+			t0 = System.currentTimeMillis( );
+		}
+		
+		while (t0 < t1);
+	}
+	
+	public int[] clearIntArray(int[] in)
+	{
+		for (int i = 0; i < in.length; i ++)
+		{
+			in[i] = -1;
+		}
+		
+		return in;
+	}
+	
+	public void resetKeyP()
+	{
+		for (int i = 0; i < keyP.length; i ++)
+		{
+			keyP[i] = false;
+		}
+	}
+	
+	public void loadMap(String filename)					//loads the text file map
+	{
+		String[] preMap = new String[100];
+		int h = 0;
+		
+		//load map to 1d string array
+		
+		try
+		{
+    		// Open the file that is the first 
+    		// command line parameter
+    		FileInputStream fstream = new FileInputStream(filename);
+    		
+    		// Get the object of DataInputStream
+    		DataInputStream in = new DataInputStream(fstream);
+        	BufferedReader br = new BufferedReader(new InputStreamReader(in));
+    		String strLine;
+    		
+    		//Read File Line By Line
+    		while ((strLine = br.readLine()) != null)
+    		{
+      			preMap[h] = strLine;
+      			//width = strLine.length();										//loads map into 1d array of strings before
+      			h ++;															//converting to 2d char array
+    		}
+    		
+    		//Close the input stream
+    		in.close();
+    	}
+    	catch (Exception e) //Catch exception if any
+    	{
+      		System.err.println("Error: " + e.getMessage());
+    	}
+    	
+    	//convert map to 2d char array
+    	
+    	int ix,iy,p;
+    	
+    	for (iy = 0; iy < globalHeight; iy ++)
+    	{
+    		for (ix = 0; ix < globalWidth; ix++)
+    		{
+    			map[ix][iy] = preMap[iy].charAt(ix);
+    		}
+    	}
+	}
+	
+	public int pMod(int in)
+	{
+		return ((int)Math.round((in/(double)16)) * 16)/16;
+	}
+	
+	public void printMap() 									//debug, prints map in terminal
+	{
+		int ix,iy;
+				
+		for (iy = 0; iy < globalHeight; iy ++)
+		{
+			for (ix = 0; ix < globalWidth; ix ++)
+			{
+				System.out.print(map[ix][iy]);
+			}
+			
+			System.out.println("");
+		}
+	}
+	
+	public void incStep()
+	{
+		Random generator = new Random();
+		stepB = generator.nextInt(9);
+	}
+}

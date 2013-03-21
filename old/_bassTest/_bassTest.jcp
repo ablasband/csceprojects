@@ -1,0 +1,658 @@
+<?xml?>
+<project>
+	<settings>
+		<label>_bassTest</label>
+		<root_path>\</root_path>
+		<output_path>\</output_path>
+		<source_path>\</source_path>
+		<jdkprofile_ref>JDK version </jdkprofile_ref>
+		<compiler_ref>&lt;Default&gt;</compiler_ref>
+		<ant_ref/>
+	</settings>
+	<runtimes>
+		<runtime>
+			<label>&lt;Default&gt;</label>
+			<application_ref/>
+			<applet_ref/>
+			<debugger_ref/>
+			<param/>
+			<run>org.jouvieje.bass.examples.DJ</run>
+		</runtime>
+	</runtimes>
+	<libraries>
+		<library_ref>bass</library_ref>
+	</libraries>
+	<files>
+		<include>
+			<folderitem>
+				<path>NativeBass Sdk</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\Examples</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\lib</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\Examples</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\Examples\org</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\util</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\fileformat</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\fileformat\wav</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\Examples\Tool</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\NativeBass</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\NativeBass\Java</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jdesktop</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jdesktop\applet</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jdesktop\applet\util</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\callbacks</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\enumerations</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\exceptions</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\misc</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures</path>
+			</folderitem>
+			<folderitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\libloader</path>
+			</folderitem>
+			<fileitem>
+				<path>NativeBass Sdk\Examples\NativeBass-Examples.jar</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\lib\NativeBass.jar</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\_LoadNGet.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\_Multi.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\BassTest.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\ConTest.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\CustLoop.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\DJ.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\DspTest.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\FxTest.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\LiveFx.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\LiveSpec.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\NetRadio.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\OutputDevice.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\Plugins.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\RecTest.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\Speakers.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\Spectrum.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\SpectrumPanel.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\Synth.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\Test3D.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\WriteWav.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\util\BassExample.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\util\BassExampleApplet.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\util\BassExampleFrame.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\util\ConsoleGUI.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\util\Device.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\bass\examples\util\FileFilters.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\fileformat\wav\DataChunk.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\fileformat\wav\FmtChunk.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\fileformat\wav\RiffChunk.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\org\jouvieje\fileformat\wav\WavHeader.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\Examples\Tool\es.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jdesktop\applet\util\JNLPAppletLauncher.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\Bass.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\BassJNI.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\Init.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\callbacks\CallbackBridge.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\callbacks\CallbackManager.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\callbacks\DOWNLOADPROC.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\callbacks\DSPPROC.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\callbacks\FILECLOSEPROC.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\callbacks\FILELENPROC.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\callbacks\FILEREADPROC.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\callbacks\FILESEEKPROC.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\callbacks\RECORDPROC.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\callbacks\STREAMPROC.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\callbacks\SYNCPROC.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_3DALG.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_3DMODE.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_ACTIVE.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_ATTRIB.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_CONFIG.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_CONFIG_NET.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_CTYPE.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_DATA.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_DEVICE.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_DEVICE_STATUS.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_DX8_PHASE.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_ENCODING.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_ERROR.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_FILEDATA.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_FILEPOS.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_INPUT.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_INPUT_TYPE.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_MUSIC.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_OBJECT.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_POS.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_RECORD.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_SAMPLE.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_SPEAKER.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_STREAM.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_STREAMFILE.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_STREAMPROC.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_SYNC.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_TAG.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_VAM.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\BASS_VAM_TERM.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\DefineJNI.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\DSCAPS.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\EAX_PRESET.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\INIT_MODES.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\PLATFORMS.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\VERSIONS.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\defines\WAVE_FORMAT.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\enumerations\BASS_FX_DX8.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\enumerations\EAX_ENVIRONMENT.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\enumerations\Enumeration.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\enumerations\EnumerationJNI.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\enumerations\STREAMPROC_SPECIAL.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\exceptions\CallbackException.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\exceptions\InitException.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\exceptions\NonDirectBufferException.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\exceptions\UnimplementedException.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\misc\BufferUtils.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\misc\BufferUtilsJNI.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\misc\FileReaderUtils.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\misc\FileWriterUtils.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\misc\ObjectPointer.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\misc\Pointer.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\misc\PointerUtils.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\misc\PointerUtilsJNI.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\misc\SizeOfPrimitive.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\BASS_3DVECTOR.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\BASS_CHANNELINFO.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\BASS_DEVICEINFO.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\BASS_DX8_CHORUS.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\BASS_DX8_COMPRESSOR.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\BASS_DX8_DISTORTION.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\BASS_DX8_ECHO.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\BASS_DX8_FLANGER.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\BASS_DX8_GARGLE.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\BASS_DX8_I3DL2REVERB.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\BASS_DX8_PARAMEQ.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\BASS_DX8_REVERB.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\BASS_FILEPROCS.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\BASS_INFO.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\BASS_PLUGINFORM.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\BASS_PLUGININFO.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\BASS_RECORDINFO.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\BASS_SAMPLE.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\HCHANNEL.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\HDSP.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\HFX.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\HMUSIC.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\HPLUGIN.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\HRECORD.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\HSAMPLE.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\HSTREAM.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\HSYNC.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\StructureJNI.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\TAG_BEXT.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\bass\structures\TAG_ID3.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\libloader\LibLoader.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\libloader\LibLoaderJNI.java</path>
+				<source>true</source>
+			</fileitem>
+			<fileitem>
+				<path>NativeBass Sdk\src\NativeBass\Java\org\jouvieje\libloader\RTLD.java</path>
+				<source>true</source>
+			</fileitem>
+		</include>
+	</files>
+	<tasks/>
+</project>

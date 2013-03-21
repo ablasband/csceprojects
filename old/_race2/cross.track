@@ -1,0 +1,65 @@
+version 1.0
+
+
+straight horiz 640 480
+straight horiz 704 480
+straight horiz 768 480
+straight horiz 832 480
+straight horiz 896 480
+straight horiz 960 480
+straight horiz 1024 480
+corner left bottom 1088 480
+corner left top 1088 544
+straight horiz 1024 544
+straight horiz 960 544
+straight horiz 896 544
+straight horiz 832 544
+straight horiz 768 544
+straight horiz 704 544
+straight horiz 640 544
+corner right bottom 576 544
+straight vert 576 608
+straight vert 576 672
+straight vert 576 736
+straight vert 576 800
+straight vert 576 864
+straight vert 576 928
+corner left top 576 992
+corner right top 512 992
+straight vert 512 928
+straight vert 512 864
+straight vert 512 800
+straight vert 512 736
+straight vert 512 672
+straight vert 512 608
+corner left bottom 512 544
+straight horiz 448 544
+straight horiz 384 544
+straight horiz 320 544
+straight horiz 256 544
+straight horiz 192 544
+straight horiz 128 544
+corner right top 64 544
+corner right bottom 64 480
+straight horiz 128 480
+straight horiz 192 480
+straight horiz 256 480
+straight horiz 320 480
+straight horiz 384 480
+straight horiz 448 480
+corner left top 512 480
+straight vert 512 416
+straight vert 512 352
+straight vert 512 288
+straight vert 512 224
+straight vert 512 160
+straight vert 512 96
+corner right bottom 512 32
+corner left bottom 576 32
+straight vert 576 96
+straight vert 576 160
+straight vert 576 224
+straight vert 576 288
+straight vert 576 352
+straight vert 576 416
+corner right top 576 480

@@ -1,0 +1,16 @@
+<?xml?>
+<workspace>
+	<settings>
+		<label>_race2</label>
+	</settings>
+	<users>
+		<user>
+			<path>_race2.jcu</path>
+		</user>
+	</users>
+	<projects>
+		<project>
+			<path>_race2.jcp</path>
+		</project>
+	</projects>
+</workspace>
