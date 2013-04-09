@@ -1,0 +1,30 @@
+GRAHAM LESLIE
+MP4 REPORT
+8 APRIL 2013
+
+MP3 Measurements:
+
+	i. VARIABLE: WORKERS
+	command						|			time (sec)
+	--------------------------------------------------
+	client -n 1000 -b 500 -w 40				3
+	client -n 1000 -b 500 -w 20				2
+	client -n 1000 -b 500 -w 10				4
+	
+MP4 Measurements:
+
+	i. VARIABLE: CHANNELS
+	command						|			time (sec)
+	--------------------------------------------------
+	client -n 1000 -b 500 -w 40				2
+	client -n 1000 -b 500 -w 20				3
+	client -n 1000 -b 500 -w 10				10
+	
+	
+Comparison:
+	
+	For high numbers of channels / workers, MP4's implementation runs faster than MP3.  However, for low numbers of channels / workers, MP3's implementation runs faster than MP4.  
+	
+	Above channels / workers valued at 50, there appears to be no performance increase for MP4.
+	
+	
