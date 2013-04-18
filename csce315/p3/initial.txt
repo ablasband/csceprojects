@@ -1,0 +1,20 @@
+Initial Team Report
+Team 19
+Graham Leslie
+Daniel Bartel
+Kyle Eaton
+
+
+i. 		Javascript, HTML5, CSS
+		We all have an initial background in the languages, but none of us are experts in using them.
+	
+ii.		A web based djaying app with music recommendations:
+		Base web site
+		Two youtube turntables (YouTube API)
+		Crossfader
+		Related artists (Last.fm)
+		Related tracks (Last.fm)
+	
+iii.	Graham - set up web site, youtube integration
+		Daniel - last fm
+		Kyle - last fm
