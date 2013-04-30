@@ -1,0 +1,36 @@
+GRAHAM LESLIE
+MP5 REPORT
+30 APRIL 2013
+
+RUNNING:
+	Run on unix.cs.tamu.edu
+	Compile with make
+	Run client -n int -b int -w
+	(this will execl dataserver with the default options)
+	Otherwise you can specify -h string and -p port
+	
+	Note: Sometimes when testing the server and client won't connect right away, it gives a bind error.  I just let it sit for a moment, remake it, and it'll work. 
+
+MP5 Measurements:
+
+	i. VARIABLE: Request Channels and Backlog = 200
+	command			|		time (sec)
+	--------------------------------------------------
+	35					10.365
+	50					7.959
+	75					7.342
+	125					5.605
+	
+	ii. VARIABLE: Request Channels and Backlog = 600
+	command			|		time (sec)
+	--------------------------------------------------
+	35					10.343
+	50					8.112
+	75					6.308
+	125					5.474
+	
+	
+Analysis:
+	Increasing the size of the backlog buffer has negligible performance increase on the system, whereas increasing the number of NetworkRequestChannels increases the performance on the system.  
+	
+	
